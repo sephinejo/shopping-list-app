@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping List 🛍️🛒</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alice&family=Raleway:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/9ac80604cb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="container">
+      <header class="header">Shopping List</header>
+      <ul class="items">
+        <li class="item__row">
+          <div class="item">
+            <input id="item__checkbox" name="item__checkbox" type="checkbox" />
+            <label for="item__checkbox">Milk</label>
+          </div>
+          <button><i class="fa-regular fa-trash-can"></i></button>
+        </li>
+        <div class="item__divider"></div>
+      </ul>
+      <footer>
+        <input class="input" type="text" />
+        <button class="footer__button">
+          <i class="fa-regular fa-plus"></i>
+        </button>
+      </footer>
+    </section>
+  </body>
+</html>
