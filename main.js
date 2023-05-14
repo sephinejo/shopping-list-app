@@ -16,47 +16,34 @@ function onAdd() {
   input.focus();
 }
 
+let id = 0;
 function createItem(text) {
   const itemRow = document.createElement('li');
   itemRow.setAttribute('class', 'item__row');
-
-  const item = document.createElement('div');
-  item.setAttribute('class', 'item');
-
-  const title = document.createElement('div');
-  title.setAttribute('class', 'item__name');
-
-  const checkbox = document.createElement('input');
-  checkbox.setAttribute('class', 'item__checkbox');
-  checkbox.setAttribute('name', 'item__checkbox');
-  checkbox.setAttribute('type', 'checkbox');
-
-  const name = document.createElement('label');
-  name.setAttribute('for', 'item__checkbox');
-  name.innerText = text;
-
-  const deleteBtn = document.createElement('button');
-  deleteBtn.setAttribute('class', 'item__delete');
-  deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
-  deleteBtn.addEventListener('click', () => {
-    items.removeChild(itemRow);
-  });
-
-  const itemDivider = document.createElement('div');
-  itemDivider.setAttribute('class', 'item__divider');
-
-  title.appendChild(checkbox);
-  title.appendChild(name);
-
-  item.appendChild(title);
-  item.appendChild(deleteBtn);
-
-  itemRow.appendChild(item);
-  itemRow.appendChild(itemDivider);
+  itemRow.setAttribute('data-id', id);
+  itemRow.innerHTML = `
+    <div class="item">
+      <div class="item__name">
+        <input
+          class="item__checkbox"
+          type="checkbox"
+        />
+        <label>${text}</label>
+      </div>
+      <button class="item__delete">
+        <i class="fa-regular fa-trash-can" data-id=${id}></i>
+      </button>
+    </div>
+    <div class="item__divider"></div>
+  `;
+  id++;
   return itemRow;
 }
 
-input.addEventListener('keypress', (e) => {
+input.addEventListener('keydown', (e) => {
+  if (e.isComposing) {
+    return;
+  }
   if (e.key === 'Enter') {
     onAdd();
   }
@@ -64,4 +51,12 @@ input.addEventListener('keypress', (e) => {
 
 addBtn.addEventListener('click', () => {
   onAdd();
+});
+
+items.addEventListener('click', (e) => {
+  const id = e.target.dataset.id;
+  if (id && e.target.tagName === 'I') {
+    const toBeDeleted = document.querySelector(`.item__row[data-id="${id}"]`);
+    toBeDeleted.remove();
+  }
 });
