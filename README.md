@@ -1,7 +1,8 @@
 # 🛒 Shopping List App 🛍️
 A handy shopping list application to use when you go to the grocery market or shopping mall for manageable and satisfied shopping.
 
-
+## Link
+<a href="https://velvety-raindrop-3c7135.netlify.app/" target="_blank">Live Demo</a>
 
 ## Screenshots
 ![Screenshot 2023-05-12 at 8 39 39 PM](https://github.com/sephinejo/shopping-list-app/assets/110086543/a69139d0-ee66-41ad-bf4a-3efd618c3e3f)
